@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NearMe -Explore Around You</title>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!--Welcome Page-->
+    <div id="welcomePage" class="Page">
+        <div class="welcomePageContent">
+            <h1>NearMe</h1>
+            <p class="welcome">🌍🚶‍➡️Explore Around You</p>
+            <button id="starting" class="firstButton">Get Started</button>
+        </div>
+    </div>
+  
+<main>
+    <!--Login Page -->
+    <div id="loginPage" class="Page hidden">
+     <div class="form-container">
+        <h2>Welcome Back</h2>
+        <form id="form-1">
+            <input type="email" id="login-email" placeholder="📧Email" required>
+            <input type="password" id="login-password" placeholder="🔒Password" required>
+            <button type="submit" class="firstButton">Login</button>
+        </form>
+        <p class="bottom-form">
+            Don't have an account? <a href="#" id="signUp">Sign up</a><br>
+            <a href="#" id="forgot">Forgot Password?</a>
+        </p>
+    </div>   
+    </div>
+
+    <!--Signup Page -->
+    <div id="signupPage" class="Page hidden">
+     <div class="form-container">
+        <h2>Create Account</h2>
+        <form id="form-2">
+            <input type="text" id="signup-username" placeholder="👤Username" required>
+            <input type="email" id="signup-email" placeholder="📧Email" required>
+            <input type="password" id="signup-password" placeholder="🔒Password" required>
+            <button type="submit" class="firstButton">Sign Up</button>
+        </form>
+        <p class="bottom-form">
+            Already have an account? <a href="#" id="logIn">Log in</a>
+        </p>
+    </div>   
+    </div>
+    <!--Forgot Password Page -->
+    <div id="forgotPage" class="Page hidden">
+     <div class="form-container">
+        <h2>Reset Password</h2>
+        <form id="form-3">
+            <input type="email" id="forgot-email" placeholder="📧Email" required>
+            <button type="submit" class="firstButton">Reset Password</button>
+        </form>
+        <p class="bottom-form">
+            Remembered your password? <a href="#" id="backToLogin">Log in</a>
+        </p>
+    </div>   
+    </div>
+    <!--Reset Password Page -->
+    <div id="resetPage" class="Page hidden">
+    <div class="form-container">
+        <h2>Create New Password</h2>
+        <form id="form-4">
+            <input type="email" id="reset-email" placeholder="📧Your email" required>
+            <input type="password" id="new-password" placeholder="🔒New Password" required>
+            <input type="password" id="confirm-new-password" placeholder="🔒Confirm New Password" required>
+            <button type="submit" class="firstButton">Reset Password</button>
+        </form>
+        <div id="resetSuccess" class="resetSuccessMessage hidden">
+            ✅ Yeeh, Password reset successful! Redirecting you to the login page...
+        </div>
+    </div>
+</div>
+
+<div id="main" class="main hidden">
+    <!--The header-->
+    <header class="NearMe">
+        <h1>NearMe</h1>
+        <button id="logOut" class="log-out-button">Logout</button>
+    </header>
+    <!--Navigation section-->
+     <nav class="navigationSection">
+        <button id="home" class="navigation-button active">
+            <span class="nav-icon">🏠</span>
+            <span class="nav-label">Home</span>
+        </button>
+        <button id="nearby" class="navigation-button">
+            <span class="nav-icon">📍</span>
+            <span class="nav-label">Nearby</span>
+        </button>
+        <button id="events" class="navigation-button">
+            <span class="nav-icon">🎉</span>
+            <span class="nav-label">Events</span>
+        </button>
+        <button id="bookmarks" class="navigation-button">
+            <span class="nav-icon">⭐</span>
+            <span class="nav-label">Saved</span>
+        </button>
+        <button id="profile" class="navigation-button">
+            <span class="nav-icon">👤</span>
+            <span class="nav-label">Profile</span>
+        </button>
+    </nav>
+    <!--Home Section-->
+    <section id="home-section" class="section">
+        <h2>Welcome to NearMe</h2>
+        <div id="weather" class="weather">
+            <p>Loading weather data...</p>
+        </div>
+        
+        <div class="cards-container">
+            <h3 style="color: rgb(30, 45, 100); margin-bottom: 15px; text-align: center;">Explore Your Area</h3>
+            <p style="color: rgb(155, 150, 150); margin-bottom: 20px; font-size: 16px; text-align: center;">Discover nearby places and upcoming events in your city.</p>
+            <div class="info-cards">
+                <div class="card">
+                    <h4>📍 Nearby</h4>
+                    <p>Find places around you</p>
+                </div>
+                <div class="card">
+                    <h4>🎉 Events</h4>
+                    <p>Check out local events</p>
+                </div>
+                <div class="card">
+                    <h4>📑Bookmarks</h4>
+                    <p>Save your favorite events and places</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Nearby Section -->
+    <section id="nearby-section" class="section" style="display: none;">
+        <h2>Nearby Places</h2>
+        <ul id="places-list-nearby" class="places-list">
+            <li class="item">
+                <p>Loading places...</p>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events-section" class="section" style="display: none;">
+        <h2> Discover Upcoming Events</h2>
+        <ul id="events-list-events" class="events-list">
+            <li class="item">
+                <p>Loading events near you...</p>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Profile Section -->
+    <section id="profile-section" class="section" style="display: none;">
+        <h2>My Profile</h2>
+        <div class="profile-container">
+            <div class="profile">
+                <h3>Personal Information</h3>
+                <img id="profile-avatar" src="" alt="Profile Avatar">
+                <p><strong>Name:</strong> <span id="profile-name">No name set</span></p>
+                <p><strong>Email:</strong> <span id="profile-email">No email set</span></p>
+                <button id="edit-profile-btn" class="secondButton">✏️ Edit Profile</button>
+            </div>
+            
+            <div class="profile-actions">
+                <h3>Settings</h3>
+                <button id="settings-btn" class="firstButton" style="width: 100%;">⚙️ Settings</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bookmarks Section -->
+    <section id="bookmarks-section" class="section" style="display: none;">
+        <h2>Bookmarks</h2>
+        <div>
+        </div>
+    </section>
+</div>
+    </div>
+<!--  alert-box for allowing location -->
+<div id="locationBox" class="alert-box hidden">
+    <div class="boxContent">
+        <h2>📍 Location Access</h2>
+        <p>We need your location to show nearby places and events. Allow location access?</p>
+        <div class="boxButtons">
+            <button id="allowBtn" class="firstButton">Allow</button>
+            <button id="denyBtn" class="secondButton">Enter City </button>
+        </div>
+    </div>
+</div>
+
+<!-- City Input alert-box -->
+<div id="cityInputBox" class="alert-box hidden">
+    <div class="boxContent">
+        <h2>📍 Enter Your City</h2>
+        <input type="text" id="cityInput" placeholder="e.g., New York, London, Tokyo" class="city-input">
+        <button id="submitCity" class="firstButton">Submit</button>
+    </div>
+</div>
+
+<!-- Loading alert-box -->
+<div id="loading" class="alert-box hidden">
+    <div class="boxContent loading-content">
+        <div class="loader"></div>
+        <p>Loading your location data...</p>
+    </div>
+</div>
+
+<!-- Edit Profile alert-box -->
+<div id="editProfileBox" class="alert-box hidden">
+    <div class="boxContent">
+        <h2>Edit Profile</h2>
+        
+        <div class="input-group">
+            <label>Name:</label>
+            <input type="text" id="edit-name" placeholder="Enter your name" class="input-field">
+        </div>
+        
+        <div class="input-group">
+            <label>Email:</label>
+            <input type="email" id="edit-email" placeholder="Enter your email" class="input-field">
+        </div>
+        
+        <div class="boxButtons">
+            <button id="save-profile" class="firstButton">💾 Save Changes</button>
+            <button id="cancel-edit" class="btn-secondary">❌ Cancel</button>
+        </div>
+    </div>
+</div>
+
+<!-- Settings alert-box -->
+<div id="settingsBox" class="alert-box hidden">
+    <div class="boxContent">
+        <h2>⚙️ Settings</h2>
+        
+        <div class="settings-section">
+            <h3>Appearance</h3>
+            <div class="setting-item">
+                <label>🌙 Dark Mode</label>
+                <label class="switch">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="slide"></span>
+                </label>
+            </div>
+        </div>
+        
+        <div class="settings-section">
+            <h3>Location</h3>
+            <div class="setting-item">
+                <label>📍 Use GPS</label>
+                <label class="switch">
+                    <input type="checkbox" id="gps-toggle" checked>
+                    <span class="slide"></span>
+                </label>
+            </div>
+            <button id="change-location-btn" class="secondButton" style="width: 100%; margin-top: 10px;">📍 Change my Location</button>
+        </div>
+    <button id="delete-account-btn" class="btn-logout" style="width: 100%;height: 45px; margin-top: 20px; background: rgb(221, 90, 90);border: none;border-radius: 10px;">
+    🗑️ Delete Account
+</button>
+    
+        
+        <button id="close-settings" class="secondButton" style="width: 100%; margin-top: 20px;">Close Settings</button>
+    </div>
+</div>
+
+<!-- Detail alert-box -->
+<div id="detailBox" class="alert-box hidden">
+    <div class="alert-box-content alert-box-large">
+        <button id="close-detail-alert-box" class="alert-box-close">✖</button>
+        <div id="alert-boxDetailContent">
+        </div>
+    </div>
+</div>
+  
+<script src="keys.js"></script>
+<script src="index.js"></script>
+</main>
+</body>
+</html>

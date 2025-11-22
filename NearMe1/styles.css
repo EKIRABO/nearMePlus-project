@@ -1,0 +1,923 @@
+
+/* Making all elements start with no extra space and easier to size */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Setting the page font, background, full height, and smooth color changes */
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+min-height: 100vh;
+
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Styling the app when a user prefers Dark Mode */
+body.dark-mode {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #e4e4e4;
+}
+/* General dark mode styles for various components across the body */
+body.dark-mode .Page,
+body.dark-mode .main {
+    background: rgba(30, 30, 46, 0.95);
+
+    color: #e4e4e4;
+}
+
+body.dark-mode .form-container,
+body.dark-mode .boxContent {
+    background: #1e1e2e;
+    color: #e4e4e4;
+}
+
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea,
+body.dark-mode .input-field,
+body.dark-mode .city-input {
+    background: #2d2d44;
+
+    border-color: #444;
+
+    color: #e4e4e4;
+}
+
+body.dark-mode input::placeholder {
+    color: #888;
+}
+
+/* Profile section in dark mode (labels)*/
+body.dark-mode #profile-section .profile p strong {
+
+  color: #ffffff !important; /* Ensuring labels are white in dark mode for visibilty*/
+
+  font-weight: 600;
+}
+
+/* Profile section in dark mode(Values) */
+body.dark-mode #profile-section #profile-name,
+
+body.dark-mode #profile-section #profile-email {
+  color: #e0e0e0 !important; /* Light gray for values */
+}
+
+/* Headings  */
+body.dark-mode #profile-section h2,
+body.dark-mode #profile-section h3 {
+
+  color: #ffffff !important;
+}
+
+/* background to profile card in dark mode for better visibility */
+body.dark-mode #profile-section .profile {
+
+
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Making all paragraph text in profile visible */
+body.dark-mode #profile-section .profile p {
+  color: #ffffff !important;
+}
+
+/*settings section visibility in dark mode */
+body.dark-mode #profile-section .profile-actions h3 {
+
+  color: #ffffff !important;
+}
+
+/* settings section labels in dark mode*/
+body.dark-mode .settings-section h3,
+body.dark-mode .settings-section label,
+body.dark-mode .setting-item label {
+  color: #ffffff !important;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+
+body.dark-mode h3,
+body.dark-mode h4 {
+
+    color: #a8b2d1;
+}
+
+body.dark-mode .section h2 {
+    color: #a8b2d1;
+}
+
+body.dark-mode .weather,
+body.dark-mode .cards-container,
+body.dark-mode .profile,
+body.dark-mode .settings-section {
+    background: #2d2d44 !important;
+    color: #e4e4e4;
+}
+/* darkmode on cards visibility*/
+body.dark-mode .card {
+    background: #1e1e2e !important;
+    border-color: #667eea;
+}
+
+body.dark-mode .card h4 {
+    color: #a8b2d1 !important;
+
+
+}
+
+body.dark-mode .card p {
+
+    color: #b8b8c8 !important;
+}
+
+body.dark-mode .places-list li,
+body.dark-mode .events-list li {
+    background: #2d2d44;
+
+    color: #e4e4e4;
+}
+
+body.dark-mode .places-list li h4,
+body.dark-mode .events-list li h4 {
+    color: #a8b2d1;
+}
+
+body.dark-mode .places-list li p,
+body.dark-mode .events-list li p {
+
+    color: #b8b8c8;
+}
+
+body.dark-mode .navigation-button {
+    background: #2d2d44;
+    color: #a8b2d1;
+}
+
+body.dark-mode .navigation-button.active {
+    background: #667eea;
+    color: white;
+}
+
+body.dark-mode .NearMe {
+    background: #1e1e2e;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode label {
+
+    color: #e4e4e4 !important;
+}
+
+
+body.dark-mode .slide {
+
+    background-color: #555;
+}
+
+body.dark-mode input:checked + .slide {
+    background-color: #667eea;
+}
+
+
+body.dark-mode a {
+    color: #667eea;
+}
+
+body.dark-mode .profile{
+    color: white;
+}
+
+/* Pages styling  */
+.Page {
+    display: flex;
+    justify-content: center;
+
+    align-items: center;
+
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.welcomePageContent {
+    text-align: center;
+
+color: white;
+    max-width: 600px;
+}
+
+.app-title {
+    font-size: 4rem;
+font-weight: bold;
+    margin-bottom: 20px;
+
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.welcome {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    opacity: 0.95;
+}
+
+/* Form styling */
+.form-container {
+    background: white;
+padding: 40px;
+
+    border-radius: 20px;
+
+box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 450px;
+}
+
+.form-container h2 {
+    color: rgb(30, 45, 100);
+    margin-bottom: 30px;
+    font-size: 28px;
+    text-align: center;
+}
+
+
+
+
+.form-container input {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+
+
+ border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
+transition: border-color 0.3s;
+}
+
+.form-container input:focus {
+    outline: none;
+
+    border-color: rgb(30, 45, 100);
+
+
+}
+
+
+.bottom-form {
+    text-align: center;
+    margin-top: 20px;
+
+
+    color: #666;
+
+
+}
+
+.bottom-form a {
+    color: rgb(30, 45, 100);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.bottom-form a:hover {
+    text-decoration: underline;
+}
+
+/* Buttons styling */
+.firstButton {
+    background: rgb(30, 45, 100);
+
+    color: white;
+
+padding: 15px 30px;
+    border: none;
+
+    border-radius: 10px;
+
+
+font-size: 18px;
+    font-weight: bold;
+cursor: pointer;
+
+transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.firstButton:hover {
+    background: rgb(20, 35, 90);
+    transform: translateY(-2px);
+
+box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+}
+
+.secondButton {
+    background: #667eea;
+    color: white;
+padding: 12px 24px;
+    border: none;
+ border-radius: 8px;
+    font-size: 16px;
+
+
+font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.secondButton:hover {
+    background: #5568d3;
+    transform: translateY(-2px);
+}
+
+.log-out-button {
+    background: #ff6b6b;
+    color: white;
+    padding: 10px 20px;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.log-out-button:hover {
+    background: #ff5252;
+}
+
+/* Main container styling*/
+.main {
+    background: white;
+min-height: 100vh;
+
+    padding-bottom: 80px;
+}
+
+.NearMe {
+    background: white;
+padding: 20px 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+
+    align-items: center;
+    position: sticky;
+
+    top: 0;
+    z-index: 100;
+}
+
+.NearMe h1 {
+    color: rgb(30, 45, 100);
+    font-size: 32px;
+}
+
+/* Navigation bottom part sytling*/
+.navigationSection {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    right: 0;
+    background: white;
+    display: flex;
+justify-content: space-around;
+    padding: 10px 0;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    z-index: 100;
+}
+
+.navigation-button {
+    background: transparent;
+    border: none;
+        padding: 10px 15px;
+
+cursor: pointer;
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+gap: 5px;
+    color: #666;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+}
+
+.navigation-button.active {
+    background: rgb(30, 45, 100);
+    color: white;
+}
+
+.nav-icon {
+    font-size: 24px;
+}
+
+.nav-label {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Sections styling */
+.section {
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section h2 {
+    color: rgb(30, 45, 100);
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+/* Weather card styling */
+.weather {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+ margin-bottom: 25px;
+
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.weather h3 {
+    color: rgb(30, 45, 100);
+    margin-bottom: 15px;
+}
+
+.weather p {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+/* cards styling*/
+.cards-container {
+    background: white;
+    padding: 30px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.info-cards {
+display: flex;
+    gap: 15px;
+
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    flex: 1;
+    
+    min-width: 150px;
+        background: #f8f9ff;
+padding: 25px;
+
+
+
+    border-radius: 10px;
+    border: 2px solid rgb(30, 45, 100);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h4 {
+    color: rgb(30, 45, 100);
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.card p {
+    color: #666;
+    font-size: 14px;
+}
+
+/* Places & Events list styling */
+.places-list,
+.events-list {
+    list-style: none;
+    padding: 0;
+}
+
+.places-list li,
+.events-list li {
+    background: #f5f5f5;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 15px;
+
+    border-left: 5px solid rgb(30, 45, 100);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+    transition: transform 0.3s ease;
+
+}
+
+.places-list li:hover,
+.events-list li:hover {
+    transform: translateX(5px);
+}
+
+.places-list li h4,
+.events-list li h4 {
+    color: rgb(30, 45, 100);
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.places-list li p,
+.events-list li p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.places-list li img,
+.events-list li img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.item {
+    text-align: center;
+
+padding: 40px !important;
+
+    border: none !important;
+}
+
+/* Profile section styling */
+.profile-container {
+    max-width: 800px;
+
+margin: 0 auto;
+}
+
+.profile {
+    background: white;
+    padding: 30px;
+
+border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+margin-bottom: 25px;
+}
+
+.profile h3 {
+    color: rgb(30, 45, 100);
+
+margin-bottom: 20px;
+        font-size: 24px;
+}
+
+.profile p {
+    margin: 15px 0;
+    font-size: 18px;
+
+
+    color: #333;
+}
+
+.profile p strong {
+        color: rgb(30, 45, 100);
+    
+        margin-right: 10px;
+}
+
+.profile-actions {
+    background: white;
+
+    padding: 30px;
+    border-radius: 15px;
+
+box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.profile-actions h3 {
+    color: rgb(30, 45, 100);
+
+        margin-bottom: 15px;
+    font-size: 24px;
+
+}
+
+/* Modals styling*/
+.alert-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+
+
+    align-items: center;
+    z-index: 1000;
+}
+
+.boxContent {
+    background: white;
+padding: 40px;
+    border-radius: 20px;
+    max-width: 500px;
+
+        width: 90%;
+    max-height: 90vh;
+
+    overflow-y: auto;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.alert-box-large {
+    max-width: 700px;
+}
+
+.boxContent h2 {
+    color: rgb(30, 45, 100);
+    margin-bottom: 20px;
+
+
+    font-size: 28px;
+}
+
+.boxContent p {
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 16px;
+}
+
+.boxButtons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.boxButtons button {
+    flex: 1;
+}
+
+.alert-box-close {
+    position: absolute;
+top: 15px;
+    right: 15px;
+    background: #ff6b6b;
+
+color: white;
+    border: none;
+    padding: 8px 12px;
+border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.alert-box-close:hover {
+    background: #ff5252;
+
+
+}
+
+.city-input {
+    width: 100%;
+    padding: 15px;
+    margin: 15px 0;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
+
+
+}
+
+.city-input:focus {
+    outline: none;
+    border-color: rgb(30, 45, 100);
+
+}
+
+/* Loading styling*/
+.loading-content {
+    text-align: center;
+}
+
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid rgb(30, 45, 100);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+/* Loading animation to appear as a circle rotating 360 degrees*/
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Settings section styling*/
+.settings-section {
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+
+    margin-bottom: 15px;
+}
+
+.settings-section h3 {
+    margin-bottom: 15px;
+    color: rgb(30, 45, 100);
+
+    font-size: 20px;
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.setting-item label {
+    font-weight: bold;
+
+    color: #333;
+}
+
+/* Toggle switch  to turn on or off a setting option such as GPS or dark mode*/
+.switch {
+    position: relative;
+    display: inline-block;
+
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slide {
+    position: absolute;
+    cursor: pointer;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    bottom: 0;
+    background-color: #ccc;
+
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slide:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slide {
+    background-color: rgb(30, 45, 100);
+}
+
+input:checked + .slide:before {
+    transform: translateX(26px);
+}
+
+/* input groups styling*/
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+
+margin-bottom: 8px;
+    font-weight: bold;
+
+    color: rgb(30, 45, 100);
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.input-field:focus {
+    outline: none;
+
+    border-color: rgb(30, 45, 100);
+}
+
+/* Styling the success message when a user successfully resets their password */
+.resetSuccessMessage {
+    background: #4caf50;
+    color: white;
+    
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+
+
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Small class to hide elements*/
+.hidden {
+    display: none !important;
+}
+
+/* Responsive Design(Making sure the app content is visually appealing on all screens) */
+@media (max-width: 768px) {
+    .app-title {
+
+        font-size: 3rem;
+    }
+    
+    .welcome {
+        font-size: 1.2rem;
+
+    }
+    
+    .form-container {
+        padding: 30px 20px;
+    }
+    
+    .section {
+        padding: 20px;
+    }
+    
+    .info-cards {
+        flex-direction: colum
+        n;
+    }
+    
+    .card {
+        min-width: 100%;
+    }
+    
+    .boxContent {
+        padding: 25px;
+
+        width: 95%;
+
+    }
+    
+    .nav-label {
+        font-size: 10px;
+    }
+    
+    .nav-icon {
+        font-size: 20px;
+    }
+}
+
+/* Map Styling */
+#map {
+    height: 400px;
+
+    margin-top: 30px;
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
