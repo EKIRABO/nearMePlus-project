@@ -69,8 +69,8 @@ Unlike simple entertainment apps, NearMe provides genuine utility by solving the
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/EKIRABO/nearme-project.git
-   cd nearme-project/NearMe1
+   git clone https://github.com/EKIRABO/NearMePlus-project.git
+   cd NearMePlus-project/NearMe1
    ```
 
 2. **Create the API keys file and add your keys to the file**
