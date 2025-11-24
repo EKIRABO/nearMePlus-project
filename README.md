@@ -43,17 +43,47 @@ Unlike simple entertainment apps, NearMe provides genuine utility by solving the
 
 ## APIs Used
 
-## Mapbox API – Map display + Reverse geocoding
+1. Mapbox GL JS (for interactive maps)
 
-## OpenStreetMap – Base map data
+https://docs.mapbox.com/mapbox-gl-js/
+https://docs.mapbox.com/api/maps/
 
-## Geoapify Places API – Nearby places
 
-## Ticketmaster API – Events
+2. OpenWeatherMap API (weather data)
 
-## PredictHQ API – Events
+https://openweathermap.org/api
+https://openweathermap.org/current
 
-## Browser Geolocation API – User location
+
+3. Geoapify Places API (nearby places)
+
+https://www.geoapify.com/places-api
+https://apidocs.geoapify.com/docs/places/
+
+
+4. Ticketmaster Discovery API (events)
+
+https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/
+
+
+5. PredictHQ Events API (events)
+
+https://docs.predicthq.com/
+
+
+6. OpenStreetMap Nominatim API (geocoding - city to coordinates)
+
+https://nominatim.org/release-docs/latest/api/Overview/
+
+
+7. Overpass API (OpenStreetMap places data - backup for Geoapify)
+
+https://wiki.openstreetmap.org/wiki/Overpass_API
+
+
+8. Wikimedia Commons API (place images)
+
+https://commons.wikimedia.org/wiki/Commons:API
 
 ## API Key Management
 
@@ -570,15 +600,13 @@ ssh username@web01_ip "free -m"
 **Solution**: 
 - Used `.gitignore` to exclude `keys.js` from version control
 - Manually created `keys.js` on each server after deployment
-- Provided API keys to instructors separately via secure submission comments
-- Implemented proper file permissions (chmod 644) on servers
+- Implemented proper file permissions on servers
 
 ### Challenge 2: Load Balancer Configuration
 **Problem**: Ensuring traffic is evenly distributed between two servers.
 
 **Solution**:
 - Implemented Nginx upstream with round-robin algorithm (default)
-- Added health check parameters (max_fails, fail_timeout)
 - Verified distribution by monitoring access logs on both servers
 - Tested failover by stopping services on individual servers
 
