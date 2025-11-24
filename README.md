@@ -479,11 +479,11 @@ You can also test using my domain name: https://ekirabo.tech or https://www.ekir
 
 ```bash
 # On Web01 - open one terminal
-ssh username@web01_ip
+ssh ubuntu@web01_ip
 sudo tail -f /var/log/nginx/access.log
 
 # On Web02 - open another terminal
-ssh username@web02_ip
+ssh ubuntu@web02_ip
 sudo tail -f /var/log/nginx/access.log
 
 # From your local machine, make multiple requests:
@@ -527,12 +527,12 @@ sudo nano /var/www/nearme/index.html
 **Test 1: Stop Web01**
 ```bash
 # SSH into Web01
-ssh username@web01_ip
+ssh ubuntu@web01_ip
 sudo systemctl stop nginx
 
 # Test load balancer - should still work via Web02
 curl http://lb01_ip_address
-# Should return: HTTP 200 OK
+return: HTTP 200 OK
 
 # Restart Web01
 sudo systemctl start nginx
@@ -541,7 +541,7 @@ sudo systemctl start nginx
 **Test 2: Stop Web02**
 ```bash
 # SSH into Web02
-ssh username@web02_ip
+ssh ubuntu@web02_ip
 sudo systemctl stop nginx
 
 # Test load balancer - should still work via Web01
@@ -561,41 +561,6 @@ curl -I http://web02_ip_address
 # Test load balancer
 curl -I http://lb01_ip_address
 ```
-
-
-## Monitoring & Maintenance
-
-### Monitor Load Balancer
-
-```bash
-# Check Nginx status
-sudo systemctl status nginx
-
-# View real-time access logs
-sudo tail -f /var/log/nginx/nearme_lb_access.log
-
-# View error logs
-sudo tail -f /var/log/nginx/nearme_lb_error.log
-
-# Count requests per backend server
-sudo awk '{print $1}' /var/log/nginx/nearme_lb_access.log | sort | uniq -c
-```
-
-### Monitor Backend Servers
-
-```bash
-# Check server status remotely
-ssh username@web01_ip "sudo systemctl status nginx"
-ssh username@web02_ip "sudo systemctl status nginx"
-
-# Check disk space
-ssh username@web01_ip "df -h"
-
-# Check memory usage
-ssh username@web01_ip "free -m"
-```
-
-
 
 ## Challenges & Solutions
 
