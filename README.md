@@ -46,18 +46,21 @@ Unlike simple entertainment apps, NearMe provides genuine utility by solving the
 1. Mapbox GL JS (for interactive maps)
 
 https://docs.mapbox.com/mapbox-gl-js/
+
 https://docs.mapbox.com/api/maps/
 
 
 2. OpenWeatherMap API (weather data)
 
 https://openweathermap.org/api
+
 https://openweathermap.org/current
 
 
 3. Geoapify Places API (nearby places)
 
 https://www.geoapify.com/places-api
+
 https://apidocs.geoapify.com/docs/places/
 
 
@@ -105,14 +108,14 @@ https://commons.wikimedia.org/wiki/Commons:API
 
 2. **Create the API keys file and add your keys to the file**
    ```bash
-   # Create keys.js in the project root
+
    touch keys.js
    ```
 
 4. **Open the application**
    - Simply open `index.html` in your web browser
-   - Or use a local server
-   ```bash
+   - Or use a live server
+   
 
 5. **Grant location permissions**
    - When prompted, allow the browser to access your location or type in a city
