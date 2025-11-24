@@ -469,6 +469,8 @@ done
 
 All requests should return `HTTP Status: 200`
 
+You can also test using my domain name: https://ekirabo.tech or https://www.ekirabo.tech
+
 ---
 
 ### Test 3: Load Distribution Verification
