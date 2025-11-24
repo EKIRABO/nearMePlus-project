@@ -596,8 +596,8 @@ curl -I http://lb01_ip_address
 - **Vanilla JavaScript** - No external frameworks, pure JS implementation
 - **CSS3** - Modern styling and responsive design
 
-
-**Video Link**: 
+**Demo video link**
+**Video Link**: https://www.loom.com/share/721a96f0db4a4a4285159d29b0e610a9
 
 ## Project Structure
 
